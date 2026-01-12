@@ -1,0 +1,88 @@
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Heart, HandHeart, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const actions = [
+  {
+    icon: Heart,
+    title: "Donate",
+    description: "Your contribution directly impacts lives. Every rupee counts.",
+    buttonText: "Give Now",
+    variant: "default" as const,
+  },
+  {
+    icon: HandHeart,
+    title: "Volunteer",
+    description: "Join our team of dedicated volunteers making a difference.",
+    buttonText: "Join Us",
+    variant: "outline" as const,
+  },
+  {
+    icon: Users,
+    title: "Partner",
+    description: "Collaborate with us for CSR initiatives and joint programs.",
+    buttonText: "Partner With Us",
+    variant: "outline" as const,
+  },
+];
+
+const CallToAction = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section className="py-20 gradient-navy text-navy-foreground">
+      <div className="container mx-auto px-4" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
+            Be Part of the Change
+          </h2>
+          <p className="text-navy-foreground/80 max-w-2xl mx-auto">
+            Join us in our mission to create a more equitable and compassionate
+            society. There are many ways you can contribute.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {actions.map((action, index) => (
+            <motion.div
+              key={action.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="bg-navy-foreground/10 backdrop-blur-sm rounded-2xl p-8 text-center border border-navy-foreground/20 hover:bg-navy-foreground/15 transition-colors"
+            >
+              <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6">
+                <action.icon className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="font-serif text-2xl font-semibold mb-3">
+                {action.title}
+              </h3>
+              <p className="text-navy-foreground/70 mb-6">{action.description}</p>
+              <Button
+                variant={action.variant}
+                size="lg"
+                className={
+                  action.variant === "outline"
+                    ? "border-navy-foreground/30 text-navy-foreground hover:bg-navy-foreground/10"
+                    : ""
+                }
+              >
+                {action.buttonText}
+              </Button>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default CallToAction;
