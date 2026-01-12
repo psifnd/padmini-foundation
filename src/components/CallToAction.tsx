@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Heart, HandHeart, Users } from "lucide-react";
+import { Heart, HandHeart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const actions = [
@@ -17,14 +17,7 @@ const actions = [
     title: "Volunteer",
     description: "Join our team of dedicated volunteers making a difference.",
     buttonText: "Join Us",
-    variant: "outline" as const,
-  },
-  {
-    icon: Users,
-    title: "Partner",
-    description: "Collaborate with us for CSR initiatives and joint programs.",
-    buttonText: "Partner With Us",
-    variant: "outline" as const,
+    variant: "default" as const,
   },
 ];
 
@@ -50,7 +43,7 @@ const CallToAction = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {actions.map((action, index) => (
             <motion.div
               key={action.title}
@@ -69,11 +62,6 @@ const CallToAction = () => {
               <Button
                 variant={action.variant}
                 size="lg"
-                className={
-                  action.variant === "outline"
-                    ? "border-navy-foreground/30 text-navy-foreground hover:bg-navy-foreground/10"
-                    : ""
-                }
               >
                 {action.buttonText}
               </Button>
