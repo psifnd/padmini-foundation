@@ -46,9 +46,11 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button variant="default" size="lg" className="gap-2">
-              <Heart className="w-4 h-4" />
-              Donate Now
+            <Button variant="default" size="lg" className="gap-2" asChild>
+              <a href="mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you.">
+                <Heart className="w-4 h-4" />
+                Donate Now
+              </a>
             </Button>
           </div>
 
@@ -83,9 +85,11 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
-              <Button variant="default" size="lg" className="mt-4 gap-2">
-                <Heart className="w-4 h-4" />
-                Donate Now
+              <Button variant="default" size="lg" className="mt-4 gap-2" asChild>
+                <a href="mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you.">
+                  <Heart className="w-4 h-4" />
+                  Donate Now
+                </a>
               </Button>
             </nav>
           </motion.div>

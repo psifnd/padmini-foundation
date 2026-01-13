@@ -11,6 +11,7 @@ const actions = [
     description: "Your contribution directly impacts lives. Every rupee counts.",
     buttonText: "Give Now",
     variant: "default" as const,
+    href: "mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you.",
   },
   {
     icon: HandHeart,
@@ -18,6 +19,7 @@ const actions = [
     description: "Join our team of dedicated volunteers making a difference.",
     buttonText: "Join Us",
     variant: "default" as const,
+    href: "mailto:psifnd@gmail.com?subject=Volunteer%20Registration&body=Hello%2C%0A%0AI%20am%20interested%20in%20volunteering%20with%20Padmini%20Social%20Impact%20Foundation.%0A%0AName%3A%20%0APhone%3A%20%0ACity%3A%20%0AArea%20of%20Interest%3A%20%0A%0AThank%20you.",
   },
 ];
 
@@ -62,8 +64,9 @@ const CallToAction = () => {
               <Button
                 variant={action.variant}
                 size="lg"
+                asChild
               >
-                {action.buttonText}
+                <a href={action.href}>{action.buttonText}</a>
               </Button>
             </motion.div>
           ))}
