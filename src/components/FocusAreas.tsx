@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import {
   GraduationCap,
   HeartPulse,
@@ -15,241 +15,95 @@ import {
   Brain,
   Briefcase,
   Sparkles,
-  ChevronDown,
-  ChevronUp,
 } from "lucide-react";
 
 const focusAreas = [
   {
     icon: GraduationCap,
-    title: "Education, Digital Literacy & Skill Development",
-    color: "bg-blue-500",
-    objectives: [
-      "Promote formal and informal education for children, youth, and adults in rural and urban areas.",
-      "Establish, support, and run schools, learning centers, libraries, reading rooms, and digital classrooms.",
-      "Provide digital literacy programs including computer education, internet usage, and technology awareness.",
-      "Conduct vocational training, skill-development courses, certification programs, and capacity-building workshops.",
-      "Support education through scholarships, study materials, uniforms, and learning aids for deserving students.",
-    ],
+    title: "Education & Digital Literacy",
+    description: "Empowering minds through quality education, digital skills, and vocational training for all ages.",
+    gradient: "from-blue-500 to-indigo-600",
   },
   {
     icon: HeartPulse,
-    title: "Healthcare, Sanitation & Disability Support",
-    color: "bg-teal-500",
-    objectives: [
-      "Organize medical camps, health check-ups, blood donation camps, and preventive healthcare programs.",
-      "Promote sanitation, hygiene awareness, clean drinking water initiatives, and public health education.",
-      "Support persons with disabilities through assistive devices, rehabilitation services, therapy, and inclusion programs.",
-      "Promote organ-donation awareness, counselling, registration facilitation, and public education initiatives.",
-      "Support maternal health, child health, nutrition programs, and geriatric healthcare.",
-    ],
+    title: "Healthcare & Sanitation",
+    description: "Promoting community health through medical camps, hygiene awareness, and disability support.",
+    gradient: "from-teal-500 to-emerald-600",
   },
   {
     icon: Users2,
-    title: "Women Empowerment & Gender Equality",
-    color: "bg-rose-500",
-    objectives: [
-      "Empower women through livelihood programs, self-employment, entrepreneurship, and micro-enterprise support.",
-      "Conduct training in financial literacy, digital skills, leadership, and entrepreneurship for women.",
-      "Promote women's safety through awareness programs, legal literacy, and support mechanisms.",
-      "Support self-help groups (SHGs), women collectives, and cooperative initiatives.",
-      "Work towards gender equality, dignity, and social inclusion.",
-    ],
+    title: "Women Empowerment",
+    description: "Building self-reliant women through livelihood programs, entrepreneurship, and leadership.",
+    gradient: "from-rose-500 to-pink-600",
   },
   {
     icon: Trophy,
-    title: "Youth Development, Sports & Career Guidance",
-    color: "bg-amber-500",
-    objectives: [
-      "Support youth through sports promotion, physical fitness programs, and talent development.",
-      "Provide career guidance, counselling, mentorship, and competitive exam preparation support.",
-      "Conduct personality development, leadership training, and soft-skills programs.",
-      "Facilitate internships, apprenticeships, and employability programs for youth.",
-      "Encourage innovation, creativity, and entrepreneurship among young individuals.",
-    ],
+    title: "Youth & Sports",
+    description: "Nurturing young talent through sports, career guidance, mentorship, and skill programs.",
+    gradient: "from-amber-500 to-orange-600",
   },
   {
     icon: Leaf,
-    title: "Environmental Protection & Sustainability",
-    color: "bg-green-500",
-    objectives: [
-      "Implement tree plantation, afforestation, and biodiversity conservation programs.",
-      "Promote waste management, recycling, plastic-free initiatives, and cleanliness drives.",
-      "Support water conservation, rainwater harvesting, and watershed management programs.",
-      "Create environmental awareness on climate change, renewable energy, and sustainable living.",
-      "Promote eco-friendly practices in communities and institutions.",
-    ],
+    title: "Environment & Sustainability",
+    description: "Creating a greener future through conservation, waste management, and eco-awareness.",
+    gradient: "from-green-500 to-emerald-600",
   },
   {
     icon: Shield,
-    title: "Welfare of Marginalized & Vulnerable Groups",
-    color: "bg-purple-500",
-    objectives: [
-      "Assist senior citizens through care, support services, and welfare programs.",
-      "Support destitute women, orphaned children, street children, and economically weaker sections.",
-      "Provide food, shelter, clothing, healthcare, and basic necessities to the needy.",
-      "Promote social inclusion of disadvantaged and marginalized communities.",
-      "Support rehabilitation and reintegration initiatives.",
-    ],
+    title: "Marginalized Communities",
+    description: "Supporting senior citizens, orphans, and vulnerable groups with care, shelter, and dignity.",
+    gradient: "from-purple-500 to-violet-600",
   },
   {
     icon: AlertTriangle,
-    title: "Disaster Relief & Emergency Assistance",
-    color: "bg-red-500",
-    objectives: [
-      "Provide relief during natural or man-made disasters including floods, cyclones, earthquakes, pandemics, and fires.",
-      "Distribute food, medicines, clothing, shelter materials, and essential supplies during emergencies.",
-      "Support rehabilitation, reconstruction, and recovery programs post-disaster.",
-      "Collaborate with authorities and agencies during emergency response operations.",
-    ],
+    title: "Disaster Relief",
+    description: "Providing rapid response and rehabilitation during natural and man-made emergencies.",
+    gradient: "from-red-500 to-rose-600",
   },
   {
     icon: Building2,
-    title: "Rural & Community Development",
-    color: "bg-orange-500",
-    objectives: [
-      "Promote rural development through infrastructure, sanitation, drinking water, and housing support.",
-      "Support community welfare projects including roads, schools, healthcare centers, and public facilities.",
-      "Promote livelihood enhancement and income-generation activities in rural areas.",
-      "Encourage sustainable agriculture, animal husbandry, and allied rural activities.",
-    ],
+    title: "Rural Development",
+    description: "Transforming villages through infrastructure, sanitation, and sustainable agriculture.",
+    gradient: "from-orange-500 to-amber-600",
   },
   {
     icon: Handshake,
-    title: "Collaboration & Partnerships",
-    color: "bg-indigo-500",
-    objectives: [
-      "Collaborate with Central and State Governments, local bodies, NGOs, trusts, and institutions.",
-      "Partner with CSR organizations, corporates, public sector undertakings, and foundations.",
-      "Work with national and international agencies for social development programs.",
-      "Implement joint projects, pilot initiatives, and large-scale welfare programs.",
-    ],
+    title: "Partnerships",
+    description: "Collaborating with governments, NGOs, and corporates for greater collective impact.",
+    gradient: "from-indigo-500 to-blue-600",
   },
   {
     icon: Heart,
-    title: "Fundraising, Donations & CSR Support",
-    color: "bg-pink-500",
-    objectives: [
-      "Receive and utilize donations, grants, gifts, subscriptions, CSR contributions, and endowments.",
-      "Accept foreign contributions only in compliance with the Foreign Contribution (Regulation) Act, 2010.",
-      "Ensure transparent and lawful utilization of all funds solely for charitable purposes.",
-      "Maintain proper records, disclosures, and reporting as per law.",
-    ],
+    title: "Fundraising & CSR",
+    description: "Mobilizing resources through donations, grants, and CSR with full transparency.",
+    gradient: "from-pink-500 to-rose-600",
   },
   {
     icon: Brain,
-    title: "Mental Health & Psychological Well-Being",
-    color: "bg-cyan-500",
-    objectives: [
-      "Promote mental health awareness, emotional well-being, and stress management programs.",
-      "Provide counselling services, support groups, and referral assistance.",
-      "Conduct workshops on mental health, suicide prevention, and emotional resilience.",
-      "Address mental health issues among children, youth, women, and senior citizens.",
-    ],
+    title: "Mental Health",
+    description: "Promoting emotional wellness through counselling, awareness, and community support.",
+    gradient: "from-cyan-500 to-teal-600",
   },
   {
     icon: Briefcase,
-    title: "Employment, Livelihood & Digital Inclusion",
-    color: "bg-slate-500",
-    objectives: [
-      "Support skill development and job-oriented training for unemployed and underemployed individuals.",
-      "Facilitate employment linkages, placements, and self-employment opportunities.",
-      "Promote digital inclusion through technology access and training.",
-      "Encourage entrepreneurship, start-ups, and small business development.",
-    ],
+    title: "Employment & Livelihoods",
+    description: "Creating opportunities through skill training, job placements, and entrepreneurship.",
+    gradient: "from-slate-500 to-gray-600",
   },
   {
     icon: Sparkles,
-    title: "Other Charitable & Social Activities",
-    color: "bg-violet-500",
-    objectives: [
-      "Undertake any other charitable, welfare, or community-development activities.",
-      "Carry out activities permitted under Section 2(15) of the Income Tax Act, 1961.",
-      "Implement programs covered under CSR Schedule VII of the Companies Act, 2013.",
-      "Undertake lawful activities permitted under FCRA regulations and other applicable laws.",
-    ],
+    title: "Other Charitable Activities",
+    description: "Diverse welfare programs aligned with legal and regulatory frameworks for social good.",
+    gradient: "from-violet-500 to-purple-600",
   },
 ];
-
-const FocusAreaCard = ({
-  area,
-  index,
-  isInView,
-}: {
-  area: (typeof focusAreas)[0];
-  index: number;
-  isInView: boolean;
-}) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-all duration-300 border border-border"
-    >
-      <div className="p-6">
-        <div className="flex items-start gap-4 mb-4">
-          <div
-            className={`w-12 h-12 rounded-xl ${area.color} flex items-center justify-center flex-shrink-0`}
-          >
-            <area.icon className="w-6 h-6 text-white" />
-          </div>
-          <div className="flex-1">
-            <h3 className="font-serif text-lg font-semibold text-foreground leading-tight">
-              {area.title}
-            </h3>
-            <p className="text-sm text-muted-foreground mt-1">
-              {area.objectives.length} objectives
-            </p>
-          </div>
-        </div>
-
-        <div className={`space-y-2 ${isExpanded ? "block" : "hidden"}`}>
-          {area.objectives.map((objective, i) => (
-            <div key={i} className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {objective}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {!isExpanded && (
-          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
-            {area.objectives[0]}
-          </p>
-        )}
-
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="mt-4 flex items-center gap-2 text-primary text-sm font-medium hover:underline"
-        >
-          {isExpanded ? (
-            <>
-              <ChevronUp className="w-4 h-4" />
-              Show less
-            </>
-          ) : (
-            <>
-              <ChevronDown className="w-4 h-4" />
-              View all objectives
-            </>
-          )}
-        </button>
-      </div>
-    </motion.div>
-  );
-};
 
 const FocusAreas = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section id="focus-areas" className="py-20 bg-muted/30">
+    <section id="focus-areas" className="py-24 bg-gradient-to-b from-cream to-white">
       <div className="container mx-auto px-4" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -257,27 +111,45 @@ const FocusAreas = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-            Our Objectives
+          <span className="text-coral font-semibold text-sm uppercase tracking-wider">
+            Our Pillars of Impact
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
-            13 Pillars of Social Impact
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-navy mt-3 mb-6">
+            13 Focus Areas
           </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto">
-            We work across multiple sectors to address the diverse needs of
-            communities, creating holistic and sustainable change through our
-            comprehensive focus areas.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Comprehensive programs addressing the most pressing needs of our communities
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {focusAreas.map((area, index) => (
-            <FocusAreaCard
+            <motion.div
               key={area.title}
-              area={area}
-              index={index}
-              isInView={isInView}
-            />
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className="group relative bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-2 border border-border overflow-hidden"
+            >
+              {/* Gradient accent on hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${area.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+              
+              {/* Icon */}
+              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${area.gradient} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <area.icon className="w-7 h-7" />
+              </div>
+
+              {/* Content */}
+              <h3 className="text-lg font-serif font-bold text-foreground mb-2 group-hover:text-coral transition-colors duration-300">
+                {area.title}
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                {area.description}
+              </p>
+
+              {/* Bottom accent line */}
+              <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${area.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+            </motion.div>
           ))}
         </div>
       </div>
