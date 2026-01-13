@@ -27,7 +27,7 @@ const focusAreas = [
   {
     icon: HeartPulse,
     title: "Healthcare & Sanitation",
-    description: "Promoting community health through medical camps, hygiene awareness, and disability support.",
+    description: "Promoting community health through medical camps, hygiene awareness, disability support, and organ-donation awareness with counselling and registration facilitation.",
     gradient: "from-teal-500 to-emerald-600",
   },
   {
