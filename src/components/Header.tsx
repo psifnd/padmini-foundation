@@ -6,9 +6,9 @@ import padminiLogo from "@/assets/padmini-logo.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
-  { label: "Our Work", href: "#focus-areas" },
+  { label: "About", href: "#about" },
   { label: "Impact", href: "#impact" },
+  { label: "Get Involved", href: "#focus-areas" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -16,15 +16,15 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-24">
-          {/* Logo */}
-          <a href="#home" className="flex items-center">
+        <div className="flex items-center justify-between h-16 sm:h-[4.5rem]">
+          {/* Logo - top left, clickable to home */}
+          <a href="/" className="flex items-center flex-shrink-0">
             <img 
               src={padminiLogo} 
               alt="Padmini Social Impact Foundation" 
-              className="h-20 sm:h-[4.5rem] w-auto object-contain"
+              className="h-[45px] sm:h-[70px] w-auto object-contain"
             />
           </a>
 
@@ -41,12 +41,17 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Button variant="default" size="lg" className="gap-2" asChild>
+          {/* Donate Button - top right, clearly visible */}
+          <div className="hidden lg:flex items-center">
+            <Button 
+              variant="default" 
+              size="default" 
+              className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md" 
+              asChild
+            >
               <a href="mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you.">
                 <Heart className="w-4 h-4" />
-                Donate Now
+                Donate
               </a>
             </Button>
           </div>
@@ -82,10 +87,10 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
-              <Button variant="default" size="lg" className="mt-4 gap-2" asChild>
+              <Button variant="default" size="default" className="mt-4 gap-2 w-full" asChild>
                 <a href="mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you.">
                   <Heart className="w-4 h-4" />
-                  Donate Now
+                  Donate
                 </a>
               </Button>
             </nav>
