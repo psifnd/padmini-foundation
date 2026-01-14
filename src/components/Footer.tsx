@@ -12,7 +12,7 @@ const Footer = () => {
               <img 
                 src={padminiLogo} 
                 alt="Padmini Social Impact Foundation" 
-                className="h-20 w-auto bg-background rounded-lg p-2"
+                className="h-24 w-auto bg-white/95 rounded-xl p-3 shadow-lg"
               />
             </div>
             <p className="text-background/70 text-sm leading-relaxed">
