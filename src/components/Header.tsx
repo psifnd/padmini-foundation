@@ -24,7 +24,7 @@ const Header = () => {
             <img 
               src={padminiLogo} 
               alt="Padmini Social Impact Foundation" 
-              className="h-16 w-auto"
+              className="h-14 sm:h-16 w-auto object-contain"
             />
           </a>
 
