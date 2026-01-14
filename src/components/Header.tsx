@@ -18,13 +18,13 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <a href="#home" className="flex items-center">
             <img 
               src={padminiLogo} 
               alt="Padmini Social Impact Foundation" 
-              className="h-14 sm:h-16 w-auto object-contain"
+              className="h-20 sm:h-[4.5rem] w-auto object-contain"
             />
           </a>
 
