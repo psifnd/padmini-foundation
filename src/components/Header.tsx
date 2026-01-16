@@ -24,8 +24,7 @@ const Header = () => {
             <img 
               src={padminiLogo} 
               alt="Padmini Social Impact Foundation" 
-              className="h-16 sm:h-20 w-auto object-contain"
-              style={{ imageRendering: 'crisp-edges' }}
+              className="h-14 sm:h-16 w-auto"
             />
           </a>
 
