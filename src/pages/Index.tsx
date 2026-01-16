@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import ImpactStats from "@/components/ImpactStats";
 import FocusAreas from "@/components/FocusAreas";
 import AboutSection from "@/components/AboutSection";
 import CallToAction from "@/components/CallToAction";
@@ -12,7 +11,6 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <ImpactStats />
         <AboutSection />
         <FocusAreas />
         <CallToAction />
