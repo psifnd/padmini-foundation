@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   GraduationCap,
   HeartPulse,
@@ -16,6 +16,19 @@ import {
   Briefcase,
   Sparkles,
 } from "lucide-react";
+
+// Import focus area images
+import focusEducation from "@/assets/focus-education.jpg";
+import focusHealthcare from "@/assets/focus-healthcare.jpg";
+import focusWomen from "@/assets/focus-women.jpg";
+import focusSustainable from "@/assets/focus-sustainable.jpg";
+
+const focusImages = [
+  { src: focusEducation, title: "Education & Digital Literacy", description: "Empowering minds through quality education" },
+  { src: focusHealthcare, title: "Healthcare & Sanitation", description: "Promoting community health and wellness" },
+  { src: focusWomen, title: "Women Empowerment", description: "Building self-reliant women leaders" },
+  { src: focusSustainable, title: "Sustainable Development", description: "Creating a greener future for all" },
+];
 
 const focusAreas = [
   {
@@ -101,6 +114,15 @@ const focusAreas = [
 const FocusAreas = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Auto-rotate images every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % focusImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="focus-areas" className="py-24 bg-gradient-to-b from-cream to-white">
@@ -109,7 +131,7 @@ const FocusAreas = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <span className="text-coral font-semibold text-sm uppercase tracking-wider">
             Our Pillars of Impact
@@ -120,6 +142,69 @@ const FocusAreas = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Comprehensive programs addressing the most pressing needs of our communities
           </p>
+        </motion.div>
+
+        {/* Image Carousel */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative w-full max-w-5xl mx-auto mb-16 rounded-3xl overflow-hidden shadow-elevated"
+        >
+          <div className="relative aspect-[16/9]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentImageIndex}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0"
+              >
+                <img
+                  src={focusImages[currentImageIndex].src}
+                  alt={focusImages[currentImageIndex].title}
+                  className="w-full h-full object-cover"
+                />
+                {/* Overlay with text */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="font-serif text-2xl md:text-3xl font-bold mb-2"
+                  >
+                    {focusImages[currentImageIndex].title}
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-white/90 text-lg"
+                  >
+                    {focusImages[currentImageIndex].description}
+                  </motion.p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Navigation dots */}
+            <div className="absolute bottom-4 right-8 flex gap-2 z-10">
+              {focusImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentImageIndex
+                      ? "bg-white scale-110"
+                      : "bg-white/50 hover:bg-white/75"
+                  }`}
+                  aria-label={`Go to image ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
