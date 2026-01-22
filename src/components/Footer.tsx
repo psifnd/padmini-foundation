@@ -65,7 +65,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <span className="text-background/70 text-sm">
-                  2/394/1 Akalsindhu Villa, Chinna Vadakarai, Tirumagalam - 625706,
+                  2/394/1 Akalsindhu Villa, Chinna Vadakarai, Tirumangalam - 625706,
                   Tamil Nadu
                 </span>
               </li>
