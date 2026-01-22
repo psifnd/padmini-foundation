@@ -21,13 +21,31 @@ import {
 import focusEducation from "@/assets/focus-education.jpg";
 import focusHealthcare from "@/assets/focus-healthcare.jpg";
 import focusWomen from "@/assets/focus-women.jpg";
+import focusYouthSports from "@/assets/focus-youth-sports.jpg";
 import focusSustainable from "@/assets/focus-sustainable.jpg";
+import focusMarginalized from "@/assets/focus-marginalized.jpg";
+import focusDisaster from "@/assets/focus-disaster.jpg";
+import focusRural from "@/assets/focus-rural.jpg";
+import focusPartnerships from "@/assets/focus-partnerships.jpg";
+import focusFundraising from "@/assets/focus-fundraising.jpg";
+import focusMentalHealth from "@/assets/focus-mental-health.jpg";
+import focusEmployment from "@/assets/focus-employment.jpg";
+import focusCharity from "@/assets/focus-charity.jpg";
 
 const focusImages = [
   { src: focusEducation, title: "Education & Digital Literacy", description: "Empowering minds through quality education" },
   { src: focusHealthcare, title: "Healthcare & Sanitation", description: "Promoting community health and wellness" },
   { src: focusWomen, title: "Women Empowerment", description: "Building self-reliant women leaders" },
-  { src: focusSustainable, title: "Sustainable Development", description: "Creating a greener future for all" },
+  { src: focusYouthSports, title: "Youth & Sports", description: "Nurturing young talent through sports and mentorship" },
+  { src: focusSustainable, title: "Environment & Sustainability", description: "Creating a greener future for all" },
+  { src: focusMarginalized, title: "Marginalized Communities", description: "Supporting vulnerable groups with care and dignity" },
+  { src: focusDisaster, title: "Disaster Relief", description: "Rapid response and rehabilitation during emergencies" },
+  { src: focusRural, title: "Rural Development", description: "Transforming villages through infrastructure" },
+  { src: focusPartnerships, title: "Partnerships", description: "Collaborating for greater collective impact" },
+  { src: focusFundraising, title: "Fundraising & CSR", description: "Mobilizing resources with full transparency" },
+  { src: focusMentalHealth, title: "Mental Health", description: "Promoting emotional wellness and support" },
+  { src: focusEmployment, title: "Employment & Livelihoods", description: "Creating opportunities through skill training" },
+  { src: focusCharity, title: "Other Charitable Activities", description: "Diverse welfare programs for social good" },
 ];
 
 const focusAreas = [
