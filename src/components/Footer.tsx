@@ -34,7 +34,14 @@ const Footer = () => {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-background/70 hover:text-primary text-sm transition-colors"
+                    onClick={(e) => {
+                      if (link.href.startsWith("#")) {
+                        e.preventDefault();
+                        const element = document.querySelector(link.href);
+                        element?.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                    className="text-background/70 hover:text-primary text-sm transition-colors cursor-pointer"
                   >
                     {link.label}
                   </a>
