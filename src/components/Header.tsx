@@ -46,7 +46,11 @@ const Header = () => {
               className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md" 
               asChild
             >
-              <a href="mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you.">
+              <a 
+                href="mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Heart className="w-4 h-4" />
                 Donate
               </a>
@@ -85,7 +89,11 @@ const Header = () => {
                 </a>
               ))}
               <Button variant="default" size="default" className="mt-4 gap-2 w-full" asChild>
-                <a href="mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you.">
+                <a 
+                  href="mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Heart className="w-4 h-4" />
                   Donate
                 </a>

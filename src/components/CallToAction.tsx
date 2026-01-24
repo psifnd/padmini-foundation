@@ -66,7 +66,7 @@ const CallToAction = () => {
                 size="lg"
                 asChild
               >
-                <a href={action.href}>{action.buttonText}</a>
+                <a href={action.href} target="_blank" rel="noopener noreferrer">{action.buttonText}</a>
               </Button>
             </motion.div>
           ))}
