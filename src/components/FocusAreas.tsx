@@ -10,8 +10,6 @@ import {
   Shield,
   AlertTriangle,
   Building2,
-  Handshake,
-  Heart,
   Brain,
   Briefcase,
   Sparkles,
@@ -26,8 +24,6 @@ import focusSustainable from "@/assets/focus-sustainable.jpg";
 import focusMarginalized from "@/assets/focus-marginalized.jpg";
 import focusDisaster from "@/assets/focus-disaster.jpg";
 import focusRural from "@/assets/focus-rural.jpg";
-import focusPartnerships from "@/assets/focus-partnerships.jpg";
-import focusFundraising from "@/assets/focus-fundraising.jpg";
 import focusMentalHealth from "@/assets/focus-mental-health.jpg";
 import focusEmployment from "@/assets/focus-employment.jpg";
 import focusCharity from "@/assets/focus-charity.jpg";
@@ -41,8 +37,6 @@ const focusImages = [
   { src: focusMarginalized, title: "Marginalized Communities", description: "Supporting vulnerable groups with care and dignity" },
   { src: focusDisaster, title: "Disaster Relief", description: "Rapid response and rehabilitation during emergencies" },
   { src: focusRural, title: "Rural Development", description: "Transforming villages through infrastructure" },
-  { src: focusPartnerships, title: "Partnerships", description: "Collaborating for greater collective impact" },
-  { src: focusFundraising, title: "Fundraising & CSR", description: "Mobilizing resources with full transparency" },
   { src: focusMentalHealth, title: "Mental Health", description: "Promoting emotional wellness and support" },
   { src: focusEmployment, title: "Employment & Livelihoods", description: "Creating opportunities through skill training" },
   { src: focusCharity, title: "Other Charitable Activities", description: "Diverse welfare programs for social good" },
@@ -98,18 +92,6 @@ const focusAreas = [
     gradient: "from-orange-500 to-amber-600",
   },
   {
-    icon: Handshake,
-    title: "Partnerships",
-    description: "Collaborating with governments, NGOs, and corporates for greater collective impact.",
-    gradient: "from-indigo-500 to-blue-600",
-  },
-  {
-    icon: Heart,
-    title: "Fundraising & CSR",
-    description: "Mobilizing resources through donations, grants, and CSR with full transparency.",
-    gradient: "from-pink-500 to-rose-600",
-  },
-  {
     icon: Brain,
     title: "Mental Health",
     description: "Promoting emotional wellness through counselling, awareness, and community support.",
@@ -155,7 +137,7 @@ const FocusAreas = () => {
             Our Pillars of Impact
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-navy mt-3 mb-6">
-            13 Focus Areas
+            11 Focus Areas
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Comprehensive programs addressing the most pressing needs of our communities
