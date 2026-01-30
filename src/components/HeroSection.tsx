@@ -74,6 +74,12 @@ const HeroSection = () => {
               variant="outline"
               size="lg"
               className="gap-2 text-base px-8 py-6 bg-transparent border-navy-foreground/30 text-navy-foreground hover:bg-navy-foreground/10"
+              onClick={() => {
+                const aboutSection = document.getElementById('about');
+                if (aboutSection) {
+                  aboutSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Learn More
               <ArrowRight className="w-5 h-5" />
