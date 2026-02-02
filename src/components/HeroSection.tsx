@@ -38,9 +38,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-navy-foreground leading-tight mb-6"
           >
-            Building a Future Where{" "}
-            <span className="text-primary">Every Life</span> Has{" "}
-            <span className="text-gold">Dignity</span>
+            Empowering Every Life with{" "}
+            <span className="text-primary">Dignity</span>,{" "}
+            <span className="text-gold">Health</span>, Education, and Sustainable Communities
           </motion.h1>
 
           <motion.p
