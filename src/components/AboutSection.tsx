@@ -64,8 +64,7 @@ const AboutSection = () => {
                   Our Vision
                 </h4>
                 <p className="text-sm text-muted-foreground">
-                  A world where every individual has access to opportunities for a
-                  dignified life.
+                  To build thriving, self-reliant communities where every person enjoys dignity, health, education, and sustainable livelihoods.
                 </p>
               </div>
               <div className="bg-card rounded-xl p-4 shadow-soft">
