@@ -7,7 +7,9 @@ interface WhatsAppButtonProps {
 
 const WhatsAppButton = ({ phoneNumber, message = "Hello! I'm interested in learning more about Padmini Social Impact Foundation." }: WhatsAppButtonProps) => {
   const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  
+  // Use web.whatsapp.com which is less likely to be blocked
+  const whatsappUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
   return (
     <a
