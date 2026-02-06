@@ -17,8 +17,7 @@ const Index = () => {
         <CallToAction />
       </main>
       <Footer />
-      {/* Replace with your WhatsApp number (country code + number, no + or spaces) */}
-      <WhatsAppButton phoneNumber="919876543210" />
+      <WhatsAppButton phoneNumber="919962901122" />
     </div>
   );
 };
