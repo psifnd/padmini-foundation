@@ -4,6 +4,7 @@ import FocusAreas from "@/components/FocusAreas";
 import AboutSection from "@/components/AboutSection";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -16,6 +17,8 @@ const Index = () => {
         <CallToAction />
       </main>
       <Footer />
+      {/* Replace with your WhatsApp number (country code + number, no + or spaces) */}
+      <WhatsAppButton phoneNumber="919876543210" />
     </div>
   );
 };
