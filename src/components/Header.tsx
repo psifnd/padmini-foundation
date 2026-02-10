@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+import DonateDialog from "@/components/DonateDialog";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -40,21 +40,7 @@ const Header = () => {
 
           {/* Donate Button - top right, clearly visible */}
           <div className="hidden lg:flex items-center">
-            <Button 
-              variant="default" 
-              size="default" 
-              className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md" 
-              asChild
-            >
-              <a 
-                href="mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Heart className="w-4 h-4" />
-                Donate
-              </a>
-            </Button>
+            <DonateDialog variant="header" />
           </div>
 
           {/* Mobile Menu Button */}
@@ -88,16 +74,7 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
-              <Button variant="default" size="default" className="mt-4 gap-2 w-full" asChild>
-                <a 
-                  href="mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Heart className="w-4 h-4" />
-                  Donate
-                </a>
-              </Button>
+              <DonateDialog variant="mobile" />
             </nav>
           </motion.div>
         )}
