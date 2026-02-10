@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Heart } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import DonateDialog from "@/components/DonateDialog";
 import heroImage from "@/assets/hero-organ-donation.jpg";
 
 const HeroSection = () => {
@@ -60,16 +61,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button size="lg" className="gap-2 text-base px-8 py-6" asChild>
-              <a 
-                href="mailto:psifnd@gmail.com?subject=Support%20Our%20Mission&body=Hello%2C%0A%0AI%20would%20like%20to%20support%20Padmini%20Social%20Impact%20Foundation's%20mission.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Heart className="w-5 h-5" />
-                Support Our Mission
-              </a>
-            </Button>
+            <DonateDialog variant="cta" />
             <Button
               variant="outline"
               size="lg"
