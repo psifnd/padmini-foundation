@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import DonateDialog from "@/components/DonateDialog";
 
 const CallToAction = () => {
   const ref = useRef(null);
@@ -41,15 +41,7 @@ const CallToAction = () => {
           <p className="text-navy-foreground/70 mb-6">
             Your contribution directly impacts lives. Every rupee counts.
           </p>
-          <Button size="lg" asChild>
-            <a 
-              href="mailto:psifnd@gmail.com?subject=Donation%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20make%20a%20donation%20to%20Padmini%20Social%20Impact%20Foundation.%0A%0APlease%20share%20the%20details%20for%20contributing.%0A%0AThank%20you."
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Give Now
-            </a>
-          </Button>
+          <DonateDialog variant="cta" />
         </motion.div>
       </div>
     </section>
