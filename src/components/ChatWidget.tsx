@@ -23,6 +23,15 @@ const ChatWidget = () => {
       return;
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      toast({
+        title: "Please enter a valid email address",
+        variant: "destructive",
+      });
+      return;
+    }
+
     // Create mailto link with pre-filled content
     const subject = encodeURIComponent(`Message from ${name} via Website`);
     const body = encodeURIComponent(
