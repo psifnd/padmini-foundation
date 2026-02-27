@@ -59,7 +59,12 @@ const DonateDialog = ({ variant = "header" }: DonateDialogProps) => {
             Donate via Bank Transfer
           </DialogTitle>
         </DialogHeader>
-        <div className="space-y-3 mt-2">
+        <div className="space-y-1.5 text-sm text-muted-foreground bg-muted/30 border border-border rounded-lg p-3 mt-2">
+          <p>Donations are accepted only in the name of <span className="font-medium text-foreground">Padmini Social Impact Foundation</span>.</p>
+          <p>Official receipt will be issued for all contributions.</p>
+          <p>For verification, contact us at <a href="mailto:psifnd@gmail.com" className="text-primary underline">psifnd@gmail.com</a></p>
+        </div>
+        <div className="space-y-3 mt-3">
           {bankDetails.map((item, i) => (
             <div
               key={item.label}
