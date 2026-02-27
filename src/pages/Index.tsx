@@ -4,7 +4,7 @@ import FocusAreas from "@/components/FocusAreas";
 import AboutSection from "@/components/AboutSection";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
+
 
 const Index = () => {
   return (
@@ -17,7 +17,7 @@ const Index = () => {
         <CallToAction />
       </main>
       <Footer />
-      <ChatWidget />
+      
     </div>
   );
 };
