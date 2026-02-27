@@ -12,7 +12,7 @@ const ChatWidget = () => {
   const [message, setMessage] = useState("");
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!name.trim() || !email.trim() || !message.trim()) {
@@ -32,18 +32,32 @@ const ChatWidget = () => {
       return;
     }
 
-    // Create mailto link with pre-filled content
-    const subject = encodeURIComponent(`Message from ${name} via Website`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
+    // Copy message to clipboard and show email
+    const fullMessage = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
     
-    window.open(`mailto:psifnd@gmail.com?subject=${subject}&body=${body}`, '_blank');
-    
-    toast({
-      title: "Opening email client...",
-      description: "Please send the pre-filled email to complete your message.",
-    });
+    try {
+      await navigator.clipboard.writeText(fullMessage);
+      toast({
+        title: "Message copied to clipboard!",
+        description: "Please paste it in an email to psifnd@gmail.com",
+      });
+    } catch {
+      // Fallback: try mailto
+      const subject = encodeURIComponent(`Message from ${name} via Website`);
+      const body = encodeURIComponent(fullMessage);
+      const mailtoLink = `mailto:psifnd@gmail.com?subject=${subject}&body=${body}`;
+      const a = document.createElement("a");
+      a.href = mailtoLink;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      toast({
+        title: "Opening email client...",
+        description: "Please send the pre-filled email to psifnd@gmail.com",
+      });
+    }
 
     // Reset form
     setName("");
