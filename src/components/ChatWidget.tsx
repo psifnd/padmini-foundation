@@ -38,7 +38,7 @@ const ChatWidget = () => {
       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     );
     
-    window.location.href = `mailto:psifnd@gmail.com?subject=${subject}&body=${body}`;
+    window.open(`mailto:psifnd@gmail.com?subject=${subject}&body=${body}`, '_blank');
     
     toast({
       title: "Opening email client...",
